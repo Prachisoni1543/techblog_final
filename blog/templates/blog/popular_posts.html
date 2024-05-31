@@ -1,12 +1,25 @@
-<!-- popular_posts.html -->
-{% extends 'blog/base.html' %}  {# Assuming you have a base template for your blog layouts #}
+
+{% extends 'blog/base.html' %}
 
 {% block content %}
-  <h2>Most Popular Blog Posts</h2>
+  <style>
+    h2, h3 {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+   
+  </style>
+  <h2 style="margin-bottom: 40px; display: block">Most Popular Blog Posts    </h2>
+  <br>
+  <h3>Blogs arranged according to their popularity</h3>
   <ul>
     {% for post in popular_posts %}
-      <li><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></li>
-      <!-- Customize display based on your Blog model fields -->
+      <li>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.cont }}</p>
+        <p><strong>Views:</strong> {{ post.view_count }}</p>
+      </li>
     {% endfor %}
   </ul>
 {% endblock %}

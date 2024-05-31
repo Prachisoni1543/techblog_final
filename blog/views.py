@@ -17,6 +17,11 @@ def blog_detail(request, id):
 
     return render(request, 'blog/blog_detail.html', {'blog': blog})
 
+def popular_posts(request):
+    # Fetch most popular posts based on your criteria (e.g., view_count, likes)
+    popular_posts = Blog.objects.order_by('-view_count')[:5]  # Assuming view_count is a field in your Blog model
+    return render(request, 'blog/popular_posts.html', {'popular_posts': popular_posts})
+
 
 def user_signup(request):
     if request.method == "POST":

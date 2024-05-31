@@ -1,5 +1,10 @@
 <!-- blog_detail.html -->
-<h2>{{ blog.title }}</h2>
-<p>{{ blog.content }}</p>
-<p>Views: {{ blog.view_count }}</p>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <h2>{{ blog.title }}</h2>
+  <p>{{ blog.cont }}</p>
+  <p><strong>Views:</strong> {{ blog.view_count }}</p>
+{% endblock %}
+
 <!-- Other details as needed -->
