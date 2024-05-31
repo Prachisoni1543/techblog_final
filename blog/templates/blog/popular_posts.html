@@ -1,0 +1,12 @@
+<!-- popular_posts.html -->
+{% extends 'blog/base.html' %}  {# Assuming you have a base template for your blog layouts #}
+
+{% block content %}
+  <h2>Most Popular Blog Posts</h2>
+  <ul>
+    {% for post in popular_posts %}
+      <li><a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a></li>
+      <!-- Customize display based on your Blog model fields -->
+    {% endfor %}
+  </ul>
+{% endblock %}
